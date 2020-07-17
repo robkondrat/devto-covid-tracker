@@ -10,9 +10,24 @@ const Chart = ({data}) => {
     total: totalTestResults,
   }
 
+  const chartDataConfig = {
+    labels: Object.keys(dataStructure),
+    datasets: [
+      {
+        data: Object.values(dataStructure),
+        label: "COVID-19 Test Results",
+        backgroundColor: "rgba(255,99,132,0.2)",
+        borderColor: "rgba(255,99,132,1)",
+        borderWidth: 1,
+        hoverBackgroundColor: "rgba(255,99,132,0.4)",
+        hoverBorderColor: "rgba(255,99,132,1)",
+      }
+    ]
+  }
+
   return (
     <div>
-      <HorizontalBar />
+      <HorizontalBar data={chartDataConfig} />
     </div>
   )
 }
