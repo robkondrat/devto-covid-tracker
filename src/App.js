@@ -3,7 +3,7 @@ import * as stateAbbr from "datasets-us-states-abbr";
 import Chart from "./Chart.js";
 
 function App() {
-  const [activeQuery, setActiveQuery] = useState("NY")
+  const [activeQuery, setActiveQuery] = useState("il")
   const [stateData, setStateData] = useState({})
 
   useEffect(() => {
@@ -18,6 +18,7 @@ function App() {
   }, [activeQuery]);
 
   console.log(stateData);
+  console.log(activeQuery);
 
   return (
     <div style={{width:"600px", textAlign:"center"}}>
@@ -25,13 +26,13 @@ function App() {
       <form>
         <label>
           Select a state:
-          <select value={activeQuery} onChange={e => setActiveQuery(e.target.value)}>
+          <select value={activeQuery} onChange={e => setActiveQuery(e.target.value.toLowerCase())}>
             {Object.values(stateAbbr).map(abbr => {
               return (
                 <option key={abbr} value={abbr}>
                   {abbr}
                 </option>
-              )
+              );
             })}
           </select>
         </label>
