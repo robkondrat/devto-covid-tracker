@@ -1,5 +1,6 @@
 import React from 'react';
 import * as stateAbbr from "datasets-us-states-abbr";
+import Chart from "./Chart.js";
 
 function App() {
   const [activeQuery, setActiveQuery] = useState("NY")
@@ -34,6 +35,7 @@ function App() {
             })}
         </label>
       </form>
+      <Chart data={stateData} />
     </div>
   );
 }
