@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import * as stateAbbr from "datasets-us-states-abbr";
 import Chart from "./Chart.js";
 
@@ -11,7 +11,7 @@ function App() {
       const res = await fetch(
         `https://covidtracking.com/api/states?state=${activeQuery}`
       );
-      const data = await res.join();
+      const data = await res.json();
       setStateData(data);
     }
     getData();
@@ -33,6 +33,7 @@ function App() {
                 </option>
               )
             })}
+          </select>
         </label>
       </form>
       <Chart data={stateData} />

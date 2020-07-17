@@ -1,7 +1,8 @@
 import React from 'react';
+import { HorizontalBar } from "react-chartjs-2";
 
 const Chart = ({data}) => {
-  const {positive, negative, totalTestResults, dateModified} = data
+  const {positive, negative, totalTestResults} = data
 
   const dataStructure = {
     positive,
@@ -11,7 +12,7 @@ const Chart = ({data}) => {
 
   return (
     <div>
-      <h2>Our Future Bar Chart!</h2>
+      <HorizontalBar />
     </div>
   )
 }
